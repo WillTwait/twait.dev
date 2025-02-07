@@ -1,40 +1,52 @@
-import Link from 'next/link'
+'use client';
+
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const navItems = {
   '/': {
-    name: 'home',
+    name: 'Home',
   },
-  '/blog': {
-    name: 'blog',
+  '/thoughts': {
+    name: 'Thoughts',
   },
-  'https://vercel.com/templates/next.js/portfolio-starter-kit': {
-    name: 'deploy',
+  '/projects': {
+    name: 'Projects',
   },
-}
+  '/about': {
+    name: 'About',
+  },
+};
 
 export function Navbar() {
+  const pathname = usePathname();
+
   return (
-    <aside className="-ml-[8px] mb-16 tracking-tight">
+    <aside className="tracking-tight bg-white">
       <div className="lg:sticky lg:top-20">
-        <nav
-          className="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
-          id="nav"
-        >
-          <div className="flex flex-row space-x-0 pr-10">
-            {Object.entries(navItems).map(([path, { name }]) => {
-              return (
-                <Link
-                  key={path}
-                  href={path}
-                  className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1"
-                >
-                  {name}
-                </Link>
-              )
-            })}
-          </div>
+        <nav className="flex flex-col space-y-1 fade md:relative" id="nav">
+          {Object.entries(navItems).map(([path, { name }]) => {
+            const isActive = pathname === path;
+            return (
+              <Link
+                key={path}
+                href={path}
+                className={`group border-2 border-transparent w-26 text-center rounded-sm hover:border-black hover:text-white hover:bg-black flex items-center relative py-1 px-2 text-xs md:text-base ${
+                  isActive ? 'font-bold' : 'font-normal'
+                }`}
+              >
+                {isActive && (
+                  <span className="size-1.5 mr-1.5 rounded-full bg-black group-hover:bg-white" />
+                )}
+                {name}
+              </Link>
+            );
+          })}
         </nav>
       </div>
     </aside>
-  )
+  );
 }
+
+// Export the navItems to use in layout for title
+export { navItems };

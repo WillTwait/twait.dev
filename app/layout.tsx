@@ -1,25 +1,26 @@
-import './global.css'
-import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
-import { Navbar } from './components/nav'
-import { Analytics } from '@vercel/analytics/react'
-import { SpeedInsights } from '@vercel/speed-insights/next'
-import Footer from './components/footer'
-import { baseUrl } from './sitemap'
+import './global.css';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { GeistMono } from 'geist/font/mono';
+import { GeistSans } from 'geist/font/sans';
+import type { Metadata } from 'next';
+import Footer from './components/footer';
+import Layout from './components/layout';
+import { Navbar } from './components/nav';
+import { baseUrl } from './sitemap';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
+  metadataBase: new URL('https://twait.dev'),
   title: {
-    default: 'Next.js Portfolio Starter',
-    template: '%s | Next.js Portfolio Starter',
+    default: 'Will Twait',
+    template: '%s | Will Twait',
   },
-  description: 'This is my portfolio.',
+  description: 'Developer, writer, and creator.',
   openGraph: {
-    title: 'My Portfolio',
-    description: 'This is my portfolio.',
-    url: baseUrl,
-    siteName: 'My Portfolio',
+    title: 'Will Twait',
+    description: 'Developer, writer, and creator.',
+    url: 'https://twait.dev',
+    siteName: 'Will Twait',
     locale: 'en_US',
     type: 'website',
   },
@@ -34,14 +35,22 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-}
+  twitter: {
+    title: 'Will Twait',
+    card: 'summary_large_image',
+  },
+  verification: {
+    google: 'google',
+    yandex: 'yandex',
+  },
+};
 
-const cx = (...classes) => classes.filter(Boolean).join(' ')
+const cx = (...classes) => classes.filter(Boolean).join(' ');
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html
@@ -52,15 +61,14 @@ export default function RootLayout({
         GeistMono.variable
       )}
     >
-      <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
-          <Navbar />
+      <body className="antialiased">
+        <Layout>
           {children}
           <Footer />
-          <Analytics />
-          <SpeedInsights />
-        </main>
+        </Layout>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
-  )
+  );
 }
