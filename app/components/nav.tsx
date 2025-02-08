@@ -58,5 +58,4 @@ export function Navbar() {
   );
 }
 
-// Export the navItems to use in layout for title
 export { navItems };

@@ -17,7 +17,6 @@ export default function ExternalLink({ href, children }: ExternalLinkProps) {
     );
   }
 
-  // Extract the domain from the href
   const domain = new URL(href).hostname.replace("www.", "");
 
   return (

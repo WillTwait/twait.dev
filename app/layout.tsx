@@ -13,10 +13,10 @@ export const metadata: Metadata = {
     default: "Will Twait",
     template: "%s | Will Twait",
   },
-  description: "Developer, writer, and creator.",
+  description: "Will's Website",
   openGraph: {
     title: "Will Twait",
-    description: "Developer, writer, and creator.",
+    description: "Will's Website",
     url: "https://twait.dev",
     siteName: "Will Twait",
     locale: "en_US",
