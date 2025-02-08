@@ -1,10 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './app/**/*.{js,ts,jsx,tsx,mdx}', // Scan all files in app directory
+    "./app/**/*.{js,ts,jsx,tsx,mdx}", // Scan all files in app directory
   ],
   theme: {
-    extend: {}, // Extend default theme
+    extend: {},
   },
-  darkMode: 'class', // This changes from 'media' (system preference) to 'class' (manual control)
+  darkMode: "class", // This changes from 'media' (system preference) to 'class' (manual control)
 };

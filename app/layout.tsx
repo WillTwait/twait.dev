@@ -1,27 +1,26 @@
-import './global.css'
-import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
-import { Navbar } from './components/nav'
-import { Analytics } from '@vercel/analytics/react'
-import { SpeedInsights } from '@vercel/speed-insights/next'
-import Footer from './components/footer'
-import { baseUrl } from './sitemap'
+import "./global.css";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import Layout from "./components/layout";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
+  metadataBase: new URL("https://twait.dev"),
   title: {
-    default: 'Next.js Portfolio Starter',
-    template: '%s | Next.js Portfolio Starter',
+    default: "Will Twait",
+    template: "%s | Will Twait",
   },
-  description: 'This is my portfolio.',
+  description: "Will's Website",
   openGraph: {
-    title: 'My Portfolio',
-    description: 'This is my portfolio.',
-    url: baseUrl,
-    siteName: 'My Portfolio',
-    locale: 'en_US',
-    type: 'website',
+    title: "Will Twait",
+    description: "Will's Website",
+    url: "https://twait.dev",
+    siteName: "Will Twait",
+    locale: "en_US",
+    type: "website",
   },
   robots: {
     index: true,
@@ -29,38 +28,39 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
-}
-
-const cx = (...classes) => classes.filter(Boolean).join(' ')
+  twitter: {
+    title: "Will Twait",
+    card: "summary_large_image",
+  },
+  verification: {
+    google: "google",
+    yandex: "yandex",
+  },
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html
       lang="en"
-      className={cx(
-        'text-black bg-white dark:text-white dark:bg-black',
-        GeistSans.variable,
-        GeistMono.variable
-      )}
+      className={`${inter.className} text-black bg-white dark:text-white dark:bg-black`}
     >
-      <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
-          <Navbar />
+      <body className="antialiased">
+        <Layout>
           {children}
-          <Footer />
-          <Analytics />
-          <SpeedInsights />
-        </main>
+          {/* <Footer /> */}
+        </Layout>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
-  )
+  );
 }

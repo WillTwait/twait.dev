@@ -6,7 +6,11 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "correctness": {
+        "noUnusedVariables": "warn",
+        "noUnusedImports": "warn"
+      }
     }
   },
   "formatter": {
@@ -18,8 +22,8 @@
   },
   "javascript": {
     "formatter": {
-      "quoteStyle": "single",
-      "trailingComma": "es5",
+      "quoteStyle": "double",
+      "trailingCommas": "es5",
       "semicolons": "always"
     }
   }
