@@ -1,4 +1,4 @@
-import { getBlogPosts } from "app/blog/utils";
+import { getBlogPosts } from "app/thoughts/utils";
 import Link from "next/link";
 
 export function BlogPosts() {
@@ -19,7 +19,7 @@ export function BlogPosts() {
           <Link
             key={post.slug}
             className="flex flex-col space-y-1 mb-4"
-            href={`/blog/${post.slug}`}
+            href={`/thoughts/${post.slug}`}
           >
             <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2">
               {/* <p className="text-neutral-600 dark:text-neutral-400 w-[100px] tabular-nums">
