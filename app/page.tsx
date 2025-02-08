@@ -11,7 +11,7 @@ function LTrainIcon() {
 
 function SubwayStop({ name }: { name: string }) {
   return (
-    <span className="bg-[#1F1F1F] text-white p-1 inline-flex items-center rounded-sm gap-1">
+    <span className="bg-[#1F1F1F] text-white p-1 inline-flex items-center rounded-sm gap-1 text-xs md:text-sm">
       <LTrainIcon />
       <span className="font-bold">{name}</span>
     </span>
@@ -21,39 +21,43 @@ function SubwayStop({ name }: { name: string }) {
 export default function Page() {
   return (
     <section className="flex flex-col gap-6">
-      <span className="text-3xl">
+      <span className="text-2xl md:text-3xl">
         Hi, I'm{" "}
         <strong className="border-2 border-black px-1 rounded-sm">
           Will Twait
         </strong>
-        <span className="text-2xl">. Welcome to my website.</span>
+        .
       </span>
 
-      <div className="text-xl flex flex-col gap-4">
+      <div className="text-base md:text-xl flex flex-col gap-2">
         <p>
           I am a software engineer living in{" "}
           <ExternalLink href="https://www.google.com/maps/place/Msgr.+McGolrick+Park/@40.7243563,-73.9434185,21z/data=!4m6!3m5!1s0x89c2594ec9f8eca9:0x502c61b7a733459e!8m2!3d40.7244763!4d-73.9433497!16zL20vMDdrY2Ji?entry=ttu&g_ep=EgoyMDI1MDIwNS4wIKXMDSoASAFQAw%3D%3D">
             Brooklyn, NY
           </ExternalLink>
-          .
+          {";"}
         </p>
         <p>
-          I do <Link href="/work">work</Link> professionally, and{" "}
-          <Link href="/projects">projects</Link> recreationally.
+          who does <Link href="/work">work</Link> professionally, and{" "}
+          <Link href="/projects">projects</Link> recreationally{";"}
         </p>
-
         <p>
-          You can connect with me virtually via{" "}
-          <ExternalLink href="mailto:will.twait@gmail.com">email</ExternalLink>,{" "}
-          <ExternalLink href="https://x.com/willtwait">twitter</ExternalLink>,{" "}
+          and can be reached virtually via{" "}
+          <ExternalLink href="https://x.com/willtwait">Twitter</ExternalLink>
+          {", "}
           <ExternalLink href="https://www.linkedin.com/in/william-twait/">
-            linkedin
+            LinkedIn
           </ExternalLink>
-          .
+          {", "}
+          <ExternalLink href="https://github.com/willtwait">
+            GitHub
+          </ExternalLink>
+          {" and "}
+          <ExternalLink href="mailto:will.twait@gmail.com">email</ExternalLink>
+          {";"}
         </p>
-
         <p>
-          Or in person on the train somewhere between{" "}
+          or in person on the train somewhere between{" "}
           <SubwayStop name="Bedford Avenue" /> and{" "}
           <SubwayStop name="14 St-Union Square" />.
         </p>
