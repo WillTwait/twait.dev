@@ -1,6 +1,6 @@
-import { formatDate, getBlogPosts } from "app/blog/utils";
 import { CustomMDX } from "app/components/mdx";
 import { baseUrl } from "app/sitemap";
+import { formatDate, getBlogPosts } from "app/thoughts/utils";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
@@ -63,6 +63,7 @@ export default function Blog({ params }) {
       <script
         type="application/ld+json"
         suppressHydrationWarning
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
