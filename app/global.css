@@ -1,8 +1,19 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 ::selection {
   background-color: #47a3f3;
   color: #fefefe;
+}
+
+/* Style external links */
+a[href^="http"],
+a[href^="mailto"] {
+  @apply underline decoration-blue-400 underline-offset-2 decoration-[0.1em] hover:decoration-blue-600 transition-all;
+}
+
+/* Style internal links but exclude nav */
+a[href^="/"]:not(aside a) {
+  @apply underline decoration-emerald-400 underline-offset-2 decoration-[0.1em] hover:decoration-emerald-600 transition-all;
 }
 
 :root {
@@ -43,7 +54,7 @@ html {
 
 .prose .anchor:after {
   @apply text-neutral-300;
-  content: '#';
+  content: "#";
 }
 
 .prose *:hover > .anchor {
@@ -118,8 +129,8 @@ pre {
   scrollbar-width: none;
 }
 
-input[type='text'],
-input[type='email'] {
+input[type="text"],
+input[type="email"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;

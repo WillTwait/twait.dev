@@ -1,5 +1,5 @@
-import { formatDate, getBlogPosts } from 'app/blog/utils';
-import Link from 'next/link';
+import { getBlogPosts } from "app/blog/utils";
+import Link from "next/link";
 
 export function BlogPosts() {
   const allBlogs = getBlogPosts();
