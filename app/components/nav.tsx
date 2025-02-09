@@ -1,40 +1,50 @@
 "use client";
 
+import {
+  Briefcase,
+  Hammer,
+  House,
+  Laptop,
+  LibraryBig,
+  Newspaper,
+  NotebookPen,
+  User,
+} from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const navItems = {
   "/": {
     name: "Home",
-    icon: "🏠",
+    icon: <House />,
   },
   "/thoughts": {
     name: "Thoughts",
-    icon: "💭",
+    icon: <NotebookPen />,
   },
   "/work": {
     name: "Work",
-    icon: "💼",
+    icon: <Briefcase />,
   },
   "/projects": {
     name: "Projects",
-    icon: "🔨",
+    icon: <Hammer />,
   },
   "/books": {
     name: "Books",
-    icon: "📚",
+    icon: <LibraryBig />,
   },
   "/blogroll": {
     name: "Blogroll",
-    icon: "📰",
+    icon: <Newspaper />,
   },
   "/uses": {
     name: "Uses",
-    icon: "💻",
+    icon: <Laptop />,
   },
   "/about": {
     name: "About",
-    icon: "👤",
+    icon: <User />,
   },
 };
 
@@ -50,7 +60,7 @@ export function Navbar() {
             <Link
               key={path}
               href={path}
-              className={`group border-2 border-transparent w-10 md:w-20 text-center rounded-sm hover:border-black flex items-center relative py-0.5 md:py-1 px-1.5 md:px-2 text-xs md:text-base ${
+              className={`group border-2 border-transparent w-12 md:w-26 text-center rounded-sm hover:border-black flex items-center relative py-0.5 md:py-1 px-1.5 md:px-2 text-xs md:text-base ${
                 isActive ? "font-bold" : "font-normal"
               }`}
             >

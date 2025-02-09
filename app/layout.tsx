@@ -10,15 +10,15 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL("https://twait.dev"),
   title: {
-    default: "Will Twait",
-    template: "%s | Will Twait",
+    default: "Will's Website",
+    template: "%s | Will's Website",
   },
   description: "Will's Website",
   openGraph: {
-    title: "Will Twait",
+    title: "Will's Website",
     description: "Will's Website",
     url: "https://twait.dev",
-    siteName: "Will Twait",
+    siteName: "Will's Website",
     locale: "en_US",
     type: "website",
   },
