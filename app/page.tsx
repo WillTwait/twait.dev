@@ -11,16 +11,16 @@ function LTrainIcon() {
 
 function SubwayStop({ name }: { name: string }) {
   return (
-    <span className="bg-[#1F1F1F] text-white p-1 inline-flex items-center rounded-sm gap-1 text-xs md:text-sm">
+    <span className="bg-[#1F1F1F] text-white p-1 inline-flex items-center rounded-sm gap-1 text-xs md:text-sm tracking-normal">
       <LTrainIcon />
-      <span className="font-bold">{name}</span>
+      <span className="font-bold border-t-2 decoration-white">{name}</span>
     </span>
   );
 }
 
 export default function Page() {
   return (
-    <section className="flex flex-col gap-6">
+    <section className="flex flex-col gap-6 tracking-tight leading-snug">
       <span className="text-2xl md:text-3xl">
         Hi, I'm{" "}
         <strong className="border-2 border-black px-1 rounded-sm">
@@ -57,9 +57,15 @@ export default function Page() {
           {";"}
         </p>
         <p>
-          or in person on the train somewhere between{" "}
-          <SubwayStop name="Bedford Avenue" /> and{" "}
-          <SubwayStop name="14 St-Union Square" />.
+          or can be found in-person going between{" "}
+          <span className="my-[1px] md:my-0 inline-block">
+            <SubwayStop name="Bedford Avenue" />
+          </span>{" "}
+          and{" "}
+          <span className="my-[1px] md:my-0 inline-block">
+            <SubwayStop name="14 St-Union Square" />
+          </span>
+          .
         </p>
       </div>
       {/* <div className="my-8">

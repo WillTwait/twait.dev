@@ -13,7 +13,7 @@ export default function Layout({ children }: LayoutProps) {
   const currentPage = navItems[pathname]?.name || "Not Found";
 
   return (
-    <div className="min-h-screen px-2.5 py-12 md:px-4 md:py-16 flex items-center justify-center overflow-x-hidden overflow-y-auto">
+    <div className="min-h-screen px-2.5 py-8 md:px-4 md:py-12 flex items-center justify-center overflow-x-hidden overflow-y-auto">
       <div className="relative w-full max-w-5xl">
         <div className="grid grid-cols-[0.5fr_minmax(auto,_85%)_0.5fr] md:grid-cols-[1fr_minmax(auto,_85%)_1fr] items-start">
           {/* Future Rabbit hole list */}
@@ -24,7 +24,7 @@ export default function Layout({ children }: LayoutProps) {
           {/* Main Content Frame */}
           <div
             className={`relative ${
-              pathname === "/" ? "h-[70vh]" : "h-full min-h-[70vh]"
+              pathname === "/" ? "h-[75vh]" : "h-full min-h-[70vh]"
             }`}
           >
             {/* Current Page Title */}
