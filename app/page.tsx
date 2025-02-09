@@ -1,22 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import ExternalLink from "./components/external-link";
-
-function LTrainIcon() {
-  return (
-    <span className="inline-flex size-4 p-3 bg-[#8B8E97] text-white rounded-full font-extrabold items-center justify-center">
-      L
-    </span>
-  );
-}
-
-function SubwayStop({ name }: { name: string }) {
-  return (
-    <span className="bg-[#1F1F1F] text-white p-1 inline-flex items-center rounded-sm gap-1 text-xs md:text-sm tracking-normal">
-      <LTrainIcon />
-      <span className="font-bold border-t-2 decoration-white">{name}</span>
-    </span>
-  );
-}
+import { SubwayStop } from "./components/mta";
 
 export default function Page() {
   return (

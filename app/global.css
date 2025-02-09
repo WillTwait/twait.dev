@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+@keyframes train {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-80vw);
+    opacity: 0;
+  }
+}
+
 ::selection {
   background-color: #47a3f3;
   color: #fefefe;
