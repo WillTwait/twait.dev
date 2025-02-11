@@ -25,7 +25,7 @@ export function SubwayStop({ name }: { name: string }) {
       <button
         type="button"
         onClick={handleInteraction}
-        className="bg-[#1F1F1F] text-white p-1 inline-flex items-center rounded-sm gap-1 text-xs md:text-sm tracking-normal cursor-pointer hover:bg-[#2F2F2F] transition-colors"
+        className="bg-[#1F1F1F] text-white p-1 inline-flex items-center rounded-sm gap-1 text-xs md:text-sm tracking-normal cursor-pointer"
       >
         <span className="inline-flex size-4 p-3 bg-[#8B8E97] text-white rounded-full font-extrabold items-center justify-center">
           L

@@ -10,7 +10,8 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   const pathname = usePathname();
-  const currentPage = navItems[pathname]?.name || "Not Found";
+  const basePathname = `/${pathname?.split("/")[1] || ""}`;
+  const currentPage = navItems[basePathname]?.name || "Not Found";
 
   return (
     <div className=" min-h-screen  px-2.5 py-8 md:py-12 md:px-4  flex  justify-center overflow-x-hidden overflow-y-auto">
