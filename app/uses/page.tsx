@@ -39,8 +39,8 @@ function Item({
 
   return (
     <div>
-      <div className="flex items-baseline gap-1 text-base">
-        <span className="font-semibold">{title}:</span>
+      <div>
+        <span className="font-semibold">{title}: </span>
         {itemName}
       </div>
       <p className="text-neutral-700">{children}</p>
