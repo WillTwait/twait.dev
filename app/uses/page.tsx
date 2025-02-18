@@ -14,7 +14,7 @@ function Section({
 }) {
   return (
     <div className="space-y-2 border-b pb-4">
-      <h2 className="text-2xl font-medium underline">{title}</h2>
+      <h2 className="text-xl font-medium underline">{title}</h2>
       <div className="space-y-4">{children}</div>
     </div>
   );
@@ -52,7 +52,7 @@ export default function UsesPage() {
   return (
     <div className="space-y-4">
       <div className="flex flex-col gap-2">
-        <h1 className="text-xl border-2 border-black px-1 rounded-sm w-fit">
+        <h1 className="text-2xl border-2 border-black px-1 rounded-sm w-fit">
           Things I use and enjoy enough to recommend.
         </h1>
         <span className="text-sm italic">{"(Updated 2025-02-17)"}</span>
