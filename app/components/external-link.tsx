@@ -11,8 +11,8 @@ export default function ExternalLink({ href, children }: ExternalLinkProps) {
   if (isMailTo) {
     return (
       <a href={href} className="inline-flex items-center gap-1">
-        <Mail className="size-3" />
         {children}
+        <Mail className="size-3" />
       </a>
     );
   }
@@ -21,12 +21,12 @@ export default function ExternalLink({ href, children }: ExternalLinkProps) {
 
   return (
     <a href={href} className="inline-flex items-center gap-1">
+      {children}
       <img
         src={`https://www.google.com/s2/favicons?domain=${domain}&sz=16`}
         alt={`${domain} favicon`}
         className="size-3 rounded-sm inline-block"
       />
-      {children}
     </a>
   );
 }
