@@ -2,7 +2,7 @@ import ExternalLink from "app/components/external-link";
 
 export const metadata = {
   title: "Uses",
-  description: "Software and hardware I use.",
+  description: "Tools I use.",
 };
 
 function Section({
