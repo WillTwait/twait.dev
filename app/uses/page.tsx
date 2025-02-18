@@ -14,19 +14,19 @@ function Section({
 }) {
   return (
     <div className="space-y-2 border-b pb-4">
-      <h2 className="text-xl font-medium underline">{title}</h2>
+      <h2 className="text-xl md:text-2xl font-medium underline">{title}</h2>
       <div className="space-y-4">{children}</div>
     </div>
   );
 }
 
 function Item({
-  title,
+  category,
   name,
   href,
   children,
 }: {
-  title: string;
+  category: string;
   name: string;
   href?: string;
   children?: React.ReactNode;
@@ -40,10 +40,12 @@ function Item({
   return (
     <div>
       <div>
-        <span className="font-semibold">{title}: </span>
-        {itemName}
+        <span className="font-semibold md:text-lg">{category}: </span>
+        <span className="border border-black px-1 rounded-sm md:text-lg">
+          {itemName}
+        </span>
       </div>
-      <p className="text-neutral-700">{children}</p>
+      <p className="text-sm md:text-base">{children}</p>
     </div>
   );
 }
@@ -60,7 +62,7 @@ export default function UsesPage() {
 
       <div className="space-y-4">
         <Section title="Hardware">
-          <Item title="💻 Computer" name='MacBook Pro M1 (14", Space Gray)'>
+          <Item category="💻 Computer" name='MacBook Pro M1 (14", Space Gray)'>
             Most of us are using a computer for the majority of the day, and the
             tool we interact with this much should look beautiful, feel great,
             and work exceptionally. The M1 Pro is all that, and 4+ years later
@@ -68,7 +70,7 @@ export default function UsesPage() {
           </Item>
 
           <Item
-            title="🐭 Mouse"
+            category="🐭 Mouse"
             name="Logitech MX Master"
             href="https://www.logitech.com/en-us/products/mice/mx-master-3s.html"
           >
@@ -78,7 +80,7 @@ export default function UsesPage() {
           </Item>
 
           <Item
-            title="⌨️ Keyboard"
+            category="⌨️ Keyboard"
             name="Keychron K2"
             href="https://www.keychron.com/products/keychron-k2-wireless-mechanical-keyboard?variant=39900390686809"
           >
@@ -87,13 +89,13 @@ export default function UsesPage() {
             the keys click-clack nicely.
           </Item>
 
-          <p className="text-sm text-neutral-700 italic border-y py-2">
-            Normally folks just throw techy stuff here, but other tools are
-            worth sharing too!
+          <p className="text-sm md:text-base italic border-y py-2">
+            Normally folks just throw techy stuff here, but I'm throwing in some
+            home and kitchen tools that I love.
           </p>
 
           <Item
-            title="🥘 Pan"
+            category="🥘 Pan"
             name="Staub Perfect Pan"
             href="https://www.zwilling.com/us/staub-cast-iron---woks%2F-perfect-pans-12-inch-perfect-pan-graphite-grey-1312918/40511-462-0.html?cgid=our-brands_staub_cast-iron_woks-perfect-pans"
           >
@@ -104,7 +106,7 @@ export default function UsesPage() {
           </Item>
 
           <Item
-            title="🔪 Kitchen Knife"
+            category="🔪 Kitchen Knife"
             name="Global G-2"
             href="https://www.globalcutleryusa.com/classic-g-2"
           >
@@ -113,22 +115,31 @@ export default function UsesPage() {
           </Item>
 
           <Item
-            title="🪛 Home Toolkit"
+            category="🪛 Home Toolkit"
             name="Wera Tool Check Plus"
             href="https://products.wera.de/en/bits_holders_adaptors_and_sets_bit_sets_tool-checks_and_bit-checks_with_zyklop_mini_ratchet_tool-check_plus.html.html"
           >
             The Rolls-Royce of miniature screwdriver+wrench sets but totally
             worth it. Plus you end up using them a lot to justify owning this.
           </Item>
+
+          <Item
+            category="🔇 White Noise Machine"
+            name="Dohm Sound Machine"
+            href="https://yogasleep.com/products/dohmclassic"
+          >
+            A mechanical sound machine that drowns out NYC's mechanical and
+            non-mechanical noises.
+          </Item>
         </Section>
 
         <Section title="Software">
-          <Item title="📝 Notes" name="Apple Notes">
+          <Item category="📝 Notes" name="Apple Notes">
             It just works.
           </Item>
 
           <Item
-            title="🧑‍💻 Code Editor"
+            category="🧑‍💻 Code Editor"
             name="Cursor"
             href="https://www.cursor.com/"
           >
@@ -138,11 +149,11 @@ export default function UsesPage() {
             a non-assisted editor makes it so worth it.
           </Item>
 
-          <Item title="🌐 Browser" name="Arc" href="https://www.arc.net/">
+          <Item category="🌐 Browser" name="Arc" href="https://www.arc.net/">
             To fit in at NYC WeWorks.
           </Item>
 
-          <Item title="✅ To-Do" name="Todoist" href="https://todoist.com/">
+          <Item category="✅ To-Do" name="Todoist" href="https://todoist.com/">
             One of my most used apps... I use partly as a to-do list and partly
             as a brain-dump place for thoughts to revisit later. The natural
             language scheduling is the killer feature for me that keeps me using
@@ -150,7 +161,7 @@ export default function UsesPage() {
           </Item>
 
           <Item
-            title="📑 Read It Later"
+            category="📑 Read It Later"
             name="Readwise Reader"
             href="https://readwise.io/read"
           >
@@ -161,14 +172,14 @@ export default function UsesPage() {
           </Item>
 
           <Item
-            title="📖 RSS"
+            category="📖 RSS"
             name="Readwise Reader"
             href="https://readwise.io/read"
           />
 
-          <Item title="📰 News" name="NYT App, Readwise Reader" />
+          <Item category="📰 News" name="NYT App, Readwise Reader" />
 
-          <Item title="✍🏼 Journaling" name="Apple Journal">
+          <Item category="✍🏼 Journaling" name="Apple Journal">
             Was pretty bare bones when first released, but lately the Journal
             app has become great. A Mac version would be nice, but as a "jot a
             few thoughts at a time" vs an essayist journalist, the phone app
@@ -176,7 +187,7 @@ export default function UsesPage() {
           </Item>
 
           <Item
-            title="📜 Word Processing"
+            category="📜 Word Processing"
             name="Obsidian"
             href="https://obsidian.md/"
           >
@@ -186,7 +197,7 @@ export default function UsesPage() {
           </Item>
         </Section>
 
-        <p className="text-neutral-700">
+        <p className="text-sm md:text-base">
           Finally, this site is built using NextJS with Tailwind styling and
           hosted with Vercel. Is a fancy React framework overkill for a mostly
           static site? Maybe, but it's what I'm most familiar with.

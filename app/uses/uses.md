@@ -22,6 +22,9 @@ Anthony Bourdain recommended this in Kitchen Confidential which was good enough 
 🪛 **Home Toolkit**: [Wera Tool Check Plus](https://products.wera.de/en/bits_holders_adaptors_and_sets_bit_sets_tool-checks_and_bit-checks_with_zyklop_mini_ratchet_tool-check_plus.html.html).
 The Rolls-Royce of miniature screwdriver+wrench sets but totally worth it. Plus you end up using them a lot to justify owning this.
 
+🔇 **White Noise Machine**: [Dohm Sound Machine](https://yogasleep.com/products/dohmclassic)
+A mechanical sound machine that drowns out NYC's mechanical and non-mechanical noises.
+
 # Software
 📝 **Notes**: Apple Notes.
 It just works.
