@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { highlight } from "sugar-high";
+import ExternalLink from "./external-link";
 
 function Table({ data }) {
   const headers = data.headers.map((header, index) => (
@@ -41,7 +42,7 @@ function CustomLink(props) {
     return <a {...props} />;
   }
 
-  return <a target="_blank" rel="noopener noreferrer" {...props} />;
+  return <ExternalLink href={href} {...props} />;
 }
 
 function RoundedImage(props) {

@@ -5,6 +5,7 @@ type Metadata = {
   title: string;
   publishedAt: string;
   summary: string;
+  type: string;
   image?: string;
 };
 
@@ -53,7 +54,14 @@ function getMDXData(dir) {
 }
 
 export function getBlogPosts() {
-  return getMDXData(path.join(process.cwd(), "app", "thoughts", "posts"));
+  const posts = getMDXData(
+    path.join(process.cwd(), "app", "thoughts", "posts")
+  );
+  const linkPosts = getMDXData(
+    path.join(process.cwd(), "app", "thoughts", "posts", "(links)")
+  );
+
+  return [...posts, ...linkPosts];
 }
 
 export function formatDate(date: string, includeRelative = false) {
