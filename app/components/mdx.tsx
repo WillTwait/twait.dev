@@ -67,25 +67,27 @@ function slugify(str) {
 }
 
 function createHeading(level) {
-  const Heading = ({ children }) => {
-    const slug = slugify(children);
-    return React.createElement(
-      `h${level}`,
-      { id: slug },
-      [
-        React.createElement("a", {
-          href: `#${slug}`,
-          key: `link-${slug}`,
-          className: "anchor",
-        }),
-      ],
-      children
-    );
+  return function Heading({ children }) {
+    // Check if children is a string (non-link content)
+    if (typeof children === "string") {
+      const slug = slugify(children);
+      return React.createElement(
+        `h${level}`,
+        { id: slug },
+        [
+          React.createElement("a", {
+            href: `#${slug}`,
+            key: `link-${slug}`,
+            className: "anchor",
+          }),
+        ],
+        children
+      );
+    }
+
+    // If children is not a string (likely a link), just render it
+    return React.createElement(`h${level}`, {}, children);
   };
-
-  Heading.displayName = `Heading${level}`;
-
-  return Heading;
 }
 
 const components = {
