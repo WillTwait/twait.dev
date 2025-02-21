@@ -19,7 +19,7 @@ export default function CaptionedImage({
 }: CaptionedImageProps) {
   return (
     <figure className={`my-4 flex flex-col items-center ${className}`}>
-      <div className="rounded-lg border border-neutral-200 p-4">
+      <div className="rounded-lg border border-neutral-200 p-2 md:p-4">
         <Image
           src={src}
           alt={alt}
