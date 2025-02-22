@@ -14,6 +14,15 @@ export const metadata: Metadata = {
     template: "%s | Will's Website",
   },
   description: "Will's Website",
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+    other: {
+      rel: "apple-touch-icon-precomposed",
+      url: "/icon.png",
+    },
+  },
   openGraph: {
     title: "Will's Website",
     description: "Will's Website",
