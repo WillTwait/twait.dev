@@ -3,8 +3,41 @@
 import Link from "next/link";
 import ExternalLink from "./components/external-link";
 import { SubwayStop } from "./components/mta";
+import Recents from "./components/recents";
 
 export default function Page() {
+  const recentItems = [
+    {
+      id: "google-reviews",
+      text: "Added Google Reviews post",
+      date: "Feb 21",
+      href: "/thoughts/google-reviews",
+    },
+    {
+      id: "favicon",
+      text: "Updated site favicon 🦬",
+      date: "Feb 21",
+    },
+    {
+      id: "links",
+      text: "Added Links (#1) post",
+      date: "Feb 18",
+      href: "/thoughts/links-2025-02-18",
+    },
+    {
+      id: "uses",
+      text: "Added Uses page",
+      date: "Feb 17",
+      href: "/uses",
+    },
+    {
+      id: "site",
+      text: "Created site",
+      date: "Feb 17",
+      href: "https://www.twait.dev/",
+    },
+  ];
+
   return (
     <section className="flex flex-col gap-6 tracking-tight leading-snug">
       <span className="text-2xl md:text-3xl">
@@ -54,9 +87,10 @@ export default function Page() {
           .
         </p>
       </div>
-      {/* <div className="my-8">
-        <BlogPosts />
-      </div> */}
+
+      <div className="mt-4 md:w-[50%] sm:w-full">
+        <Recents items={recentItems} />
+      </div>
     </section>
   );
 }

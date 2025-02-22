@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
+import Frame from "./frame";
 import { Navbar, navItems } from "./nav";
 
 interface LayoutProps {
@@ -30,26 +31,24 @@ export default function Layout({ children }: LayoutProps) {
               pathname === "/" ? "h-[75vh]" : "h-full min-h-[75vh]"
             }`}
           >
-            {/* Current Page Title */}
-            <h1 className="absolute -top-11 md:-top-12 left-6 text-xl md:text-2xl font-bold bg-white p-2 translate-y-1/2 z-10">
-              <Link
-                style={{ textDecoration: "none" }}
-                // If you are in a subpage, link back to the base page
-                // Otherwise go back to root
-                href={splitPathname[2] ? basePathname : "/"}
-              >
-                {currentPage}
-              </Link>
-            </h1>
-            <div
-              className={`rounded-xl border-2 border-black py-8 px-2 md:p-8 ${
-                pathname === "/"
-                  ? "h-full overflow-hidden"
-                  : "min-h-full  overflow-auto"
-              }`}
+            <Frame
+              title={
+                <Link
+                  style={{ textDecoration: "none" }}
+                  href={splitPathname[2] ? basePathname : "/"}
+                >
+                  {currentPage}
+                </Link>
+              }
+              titleSize="lg"
+              minHeight="min-h-[75vh]"
             >
-              {children}
-            </div>
+              <div
+                className={`py-8 px-2 md:p-8 ${pathname === "/" ? "h-full overflow-hidden" : "min-h-full overflow-auto"}`}
+              >
+                {children}
+              </div>
+            </Frame>
           </div>
 
           {/* Right Navigation */}
