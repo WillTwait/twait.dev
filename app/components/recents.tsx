@@ -29,7 +29,7 @@ export default function Recents({ items, className = "" }: RecentsProps) {
             </div>
 
             {/* Content */}
-            <div className="flex-1 flex justify-between gap-4 min-w-0">
+            <div className="flex-1 flex justify-between gap-4 min-w-0 items-center">
               <span className="truncate">
                 {item.href ? (
                   item.href.startsWith("http") ? (
@@ -41,7 +41,7 @@ export default function Recents({ items, className = "" }: RecentsProps) {
                   item.text
                 )}
               </span>
-              <span className="text-neutral-500 whitespace-nowrap">
+              <span className="text-neutral-500 whitespace-nowrap text-xs">
                 {item.date}
               </span>
             </div>

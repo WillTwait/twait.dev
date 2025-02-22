@@ -10,30 +10,30 @@ export default function Page() {
     {
       id: "google-reviews",
       text: "Added Google Reviews post",
-      date: "Feb 21",
+      date: "Feb 21, 2025",
       href: "/thoughts/google-reviews",
     },
     {
       id: "favicon",
       text: "Updated site favicon 🦬",
-      date: "Feb 21",
+      date: "Feb 21, 2025",
     },
     {
       id: "links",
       text: "Added Links (#1) post",
-      date: "Feb 18",
+      date: "Feb 18, 2025",
       href: "/thoughts/links-2025-02-18",
     },
     {
       id: "uses",
       text: "Added Uses page",
-      date: "Feb 17",
+      date: "Feb 17, 2025",
       href: "/uses",
     },
     {
       id: "site",
       text: "Created site",
-      date: "Feb 17",
+      date: "Feb 17, 2025",
       href: "https://www.twait.dev/",
     },
   ];
