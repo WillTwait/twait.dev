@@ -43,9 +43,7 @@ export function BlogPosts() {
         <div className="flex-1">
           <Frame title="Posts" titleSize="sm">
             <div className="p-4 flex flex-col gap-4">
-              <p className="text-neutral-600">
-                Longer form writing about ideas I'm thinking about.
-              </p>
+              <p className="text-neutral-600">Ideas I'm thinking about.</p>
               <ul className="space-y-4">
                 {posts.map((post, index) => (
                   <li key={post.slug} className="flex gap-2">
