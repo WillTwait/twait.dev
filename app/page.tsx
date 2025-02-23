@@ -10,13 +10,13 @@ export default function Page() {
     {
       id: "google-reviews",
       text: "Added Google Reviews post",
-      date: "Feb 21, 2025",
+      date: "Feb 23, 2025",
       href: "/thoughts/google-reviews",
     },
     {
       id: "favicon",
       text: "Updated site favicon 🦬",
-      date: "Feb 21, 2025",
+      date: "Feb 22, 2025",
     },
     {
       id: "links",
