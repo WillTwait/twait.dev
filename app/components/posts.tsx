@@ -36,7 +36,7 @@ export function BlogPosts() {
   return (
     <div className="space-y-6">
       <h1 className="text-2xl border-2 border-black px-1 rounded-sm w-fit">
-        Blog Posts.
+        Ideas and opinions.
       </h1>
 
       <div className="flex flex-col md:flex-row gap-6">
@@ -44,7 +44,7 @@ export function BlogPosts() {
           <Frame title="Posts" titleSize="sm">
             <div className="p-4 flex flex-col gap-4">
               <p className="text-neutral-600">
-                Longer form writing about things I'm thinking about.
+                Longer form writing about ideas I'm thinking about.
               </p>
               <ul className="space-y-4">
                 {posts.map((post, index) => (
