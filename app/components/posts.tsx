@@ -25,8 +25,8 @@ export function BlogPosts() {
         new Date(a.metadata.publishedAt).getTime()
     );
 
-  const links = allBlogs
-    .filter((post) => post.metadata.type === "links")
+  const weekly = allBlogs
+    .filter((post) => post.metadata.type === "weekly")
     .sort(
       (a, b) =>
         new Date(b.metadata.publishedAt).getTime() -
@@ -36,14 +36,14 @@ export function BlogPosts() {
   return (
     <div className="space-y-6">
       <h1 className="text-2xl border-2 border-black px-1 rounded-sm w-fit">
-        Ideas and opinions.
+        Musings and ideas.
       </h1>
 
       <div className="flex flex-col md:flex-row gap-6">
         <div className="flex-1">
           <Frame title="Posts" titleSize="sm">
             <div className="p-4 flex flex-col gap-4">
-              <p className="text-neutral-600">Ideas I'm thinking about.</p>
+              <p className="text-neutral-600">What I'm thinking about.</p>
               <ul className="space-y-4">
                 {posts.map((post, index) => (
                   <li key={post.slug} className="flex gap-2">
@@ -67,20 +67,19 @@ export function BlogPosts() {
         </div>
 
         <div className="flex-1">
-          <Frame title="Links" titleSize="sm">
+          <Frame title="Weekly Roundup" titleSize="sm">
             <div className="p-4 flex flex-col gap-4">
               <p className="text-neutral-600">
-                Link posts are an{" "}
+                Experiences and ideas from the week, and the most memorable{" "}
                 <ExternalLink href="https://patrickcollison.com/links">
-                  artifact of a simpler web
-                </ExternalLink>
-                , but I think it's still fun and useful to document what you've
-                come across that's interesting.
+                  links
+                </ExternalLink>{" "}
+                I came across.
               </p>
               <ul className="space-y-4">
-                {links.map((post, index) => (
+                {weekly.map((post, index) => (
                   <li key={post.slug} className="flex gap-2">
-                    <BulletBorder index={index} length={links.length} />
+                    <BulletBorder index={index} length={weekly.length} />
                     <Link
                       href={`/thoughts/${post.slug}`}
                       className="flex-1 group"
