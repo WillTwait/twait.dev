@@ -3,7 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { highlight } from "sugar-high";
+import {
+  default as CaptionedImageComponent,
+  type CaptionedImageProps,
+} from "./captioned-image";
 import ExternalLink from "./external-link";
+import ImageRow from "./image-row";
 
 function Table({ data }) {
   const headers = data.headers.map((header, index) => (
@@ -66,6 +71,10 @@ function slugify(str) {
     .replace(/\-\-+/g, "-"); // Replace multiple - with single -
 }
 
+function CaptionedImage(props: CaptionedImageProps) {
+  return <CaptionedImageComponent {...props} />;
+}
+
 function createHeading(level) {
   return function Heading({ children }) {
     // Check if children is a string (non-link content)
@@ -98,6 +107,8 @@ const components = {
   h5: createHeading(5),
   h6: createHeading(6),
   Image: RoundedImage,
+  CaptionedImage,
+  ImageRow,
   a: CustomLink,
   code: Code,
   Table,
