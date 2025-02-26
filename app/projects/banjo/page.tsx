@@ -9,7 +9,7 @@ import Frame from "app/components/frame";
 
 export default function BanjoPage() {
   const [currentRoll, setCurrentRoll] = useState<string>("forward");
-  const [bpm, setBpm] = useState<number>(55);
+  const [bpm, setBpm] = useState<number>(100);
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [activeNote, setActiveNote] = useState<boolean>(false);
 
