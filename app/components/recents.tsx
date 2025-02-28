@@ -1,5 +1,4 @@
 import Link from "next/link";
-import ExternalLink from "./external-link";
 import Frame from "./frame";
 
 interface RecentItem {
@@ -32,11 +31,7 @@ export default function Recents({ items, className = "" }: RecentsProps) {
             <div className="flex-1 flex justify-between gap-4 min-w-0 items-center">
               <span className="truncate">
                 {item.href ? (
-                  item.href.startsWith("http") ? (
-                    <ExternalLink href={item.href}>{item.text}</ExternalLink>
-                  ) : (
-                    <Link href={item.href}>{item.text}</Link>
-                  )
+                  <Link href={item.href}>{item.text}</Link>
                 ) : (
                   item.text
                 )}
