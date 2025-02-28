@@ -9,7 +9,7 @@ export default function ProjectsPage() {
   const projects = [
     {
       title: "Banjo Rolls Deluxe",
-      description: "Practice banjo rolls with this deluxe tool.",
+      description: "Practice banjo rolls. Deluxe.",
       icon: "/attachments/banjo-rolls-deluxe-icon.png",
       href: "https://banjo-rolls-deluxe.twait.dev",
     },
