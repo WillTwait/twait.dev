@@ -42,7 +42,7 @@ export default function Page() {
           {";"}
         </p>
         <p>
-          or found in-person at{" "}
+          or found in person at{" "}
           <span className="my-[1px] md:my-0 inline-block">
             <SubwayStop name="Bedford Avenue" />
           </span>
