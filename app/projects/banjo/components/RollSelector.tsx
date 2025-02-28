@@ -1,26 +1,32 @@
 import type { Dispatch, SetStateAction } from "react";
+import HyperButton from "./HyperButton";
 
 interface RollSelectorProps {
   currentRoll: string;
   setCurrentRoll: Dispatch<SetStateAction<string>>;
 }
 
-const rolls = [
+export interface Roll {
+  name: string;
+  pattern: number[];
+}
+
+export const rolls: Roll[] = [
   {
-    id: "forward",
     name: "Forward",
+    pattern: [4, 5, 1, 4, 5, 1, 4, 5], // Thumb, index, middle pattern
   },
   {
-    id: "backward",
     name: "Backward",
+    pattern: [5, 4, 1, 5, 4, 1, 5, 4], // Middle, index, thumb pattern
   },
   {
-    id: "reverse",
     name: "Reverse",
+    pattern: [3, 4, 5, 1, 5, 4, 3, 5], // Classic bluegrass pattern
   },
   {
-    id: "foggy",
     name: "Foggy Mountain",
+    pattern: [3, 4, 1, 5, 2, 4, 1, 5], // Classic bluegrass pattern
   },
 ];
 
@@ -30,20 +36,13 @@ export default function RollSelector({
 }: RollSelectorProps) {
   return (
     <div className="space-y-2">
-      {rolls.map((roll) => (
-        <div key={roll.id}>
-          <button
-            onClick={() => setCurrentRoll(roll.id)}
-            className="bg-transparent border-0 font-mono cursor-pointer text-left hover:font-bold"
-            aria-pressed={currentRoll === roll.id}
-            type="button"
-          >
-            {currentRoll === roll.id ? (
-              <span className="font-bold">[{roll.name}]</span>
-            ) : (
-              <span className="border-b border-black">{roll.name}</span>
-            )}
-          </button>
+      {rolls.map((roll, index) => (
+        <div key={index.toString()}>
+          <HyperButton
+            text={currentRoll === roll.name ? `[${roll.name}]` : roll.name}
+            disabled={currentRoll === roll.name}
+            onClick={() => setCurrentRoll(roll.name)}
+          />
         </div>
       ))}
     </div>

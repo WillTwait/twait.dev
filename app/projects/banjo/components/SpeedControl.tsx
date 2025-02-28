@@ -1,4 +1,5 @@
 import type { Dispatch, SetStateAction } from "react";
+import HyperButton from "./HyperButton";
 
 interface SpeedButtonProps {
   amount: number;
@@ -9,14 +10,11 @@ function SpeedButton({ amount, adjustSpeed }: SpeedButtonProps) {
   const label = amount > 0 ? `+${amount}` : `${amount}`;
 
   return (
-    <button
-      type="button"
-      className="bg-transparent cursor-pointer hover:font-bold border-b border-black"
+    <HyperButton
+      text={label}
+      disabled={false}
       onClick={() => adjustSpeed(amount)}
-      onKeyDown={(e) => e.key === "Enter" && adjustSpeed(amount)}
-    >
-      {label}
-    </button>
+    />
   );
 }
 
@@ -33,32 +31,25 @@ export default function SpeedControl({ bpm, setBpm }: SpeedControlProps) {
     });
   };
 
+  function SpeedButtonGroup({ amount }: { amount: number }) {
+    return (
+      <div className="flex flex-row">
+        {"["}
+        <div className="flex flex-row gap-4">
+          <SpeedButton amount={-amount} adjustSpeed={adjustSpeed} />
+          <SpeedButton amount={amount} adjustSpeed={adjustSpeed} />
+        </div>
+        {"]"}
+      </div>
+    );
+  }
+
   return (
     <div className="font-mono">
       <div className="space-y-2">
-        <div>
-          {"["}
-          <SpeedButton amount={-1} adjustSpeed={adjustSpeed} />
-          <span>&nbsp;&nbsp;</span>
-          <SpeedButton amount={1} adjustSpeed={adjustSpeed} />
-          {"]"}
-        </div>
-
-        <div>
-          {"["}
-          <SpeedButton amount={-5} adjustSpeed={adjustSpeed} />
-          <span>&nbsp;&nbsp;</span>
-          <SpeedButton amount={5} adjustSpeed={adjustSpeed} />
-          {"]"}
-        </div>
-
-        <div>
-          {"["}
-          <SpeedButton amount={-10} adjustSpeed={adjustSpeed} />
-          <span>&nbsp;&nbsp;</span>
-          <SpeedButton amount={10} adjustSpeed={adjustSpeed} />
-          {"]"}
-        </div>
+        <SpeedButtonGroup amount={1} />
+        <SpeedButtonGroup amount={5} />
+        <SpeedButtonGroup amount={10} />
       </div>
     </div>
   );

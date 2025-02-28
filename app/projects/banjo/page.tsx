@@ -1,25 +1,36 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BanjoTablature from "./components/BanjoTablature";
-import RollSelector from "./components/RollSelector";
+import RollSelector, { rolls } from "./components/RollSelector";
 import SpeedControl from "./components/SpeedControl";
 import "./components/banjo.css";
 import Frame from "app/components/frame";
+import HyperButton from "./components/HyperButton";
 
 export default function BanjoPage() {
-  const [currentRoll, setCurrentRoll] = useState<string>("forward");
+  const [currentRoll, setCurrentRoll] = useState<string>("Forward");
   const [bpm, setBpm] = useState<number>(100);
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [activeNote, setActiveNote] = useState<boolean>(false);
 
-  const togglePlayback = () => {
-    setIsPlaying(!isPlaying);
-  };
-
   const handleNoteActive = (isActive: boolean) => {
     setActiveNote(isActive);
   };
+
+  // Toggle play/pause state
+  const togglePlayback = (playing: boolean) => {
+    console.log("Toggling playback to:", playing);
+    setIsPlaying(playing);
+  };
+
+  // Debug effect to monitor state changes
+  useEffect(() => {
+    console.log("Current state - isPlaying:", isPlaying, "bpm:", bpm);
+  }, [isPlaying, bpm]);
+
+  // Find the current roll object
+  const selectedRoll = rolls.find((r) => r.name === currentRoll) || rolls[0];
 
   return (
     <div className="pt-6 flex flex-col items-center font-mono w-full max-w-full">
@@ -47,37 +58,27 @@ export default function BanjoPage() {
 
             {/* Controls Section - Column 3 */}
             <div>
-              <div className="mb-4">
-                <button
-                  type="button"
-                  onClick={togglePlayback}
-                  onKeyDown={(e) => e.key === "Enter" && togglePlayback()}
-                  className="bg-transparent border-0 font-mono cursor-pointer text-left hover:font-bold"
-                >
-                  {isPlaying ? (
-                    <>
-                      <span className="border-b border-black">Pause</span> /{" "}
-                      <span className="font-bold">[Play]</span>
-                    </>
-                  ) : (
-                    <>
-                      <span className="font-bold">[Pause]</span> /{" "}
-                      <span className="border-b border-black">Play</span>
-                    </>
-                  )}
-                </button>
+              <div className="mb-4 flex flex-row items-center gap-2">
+                <HyperButton
+                  text={isPlaying ? "Pause" : "[Pause]"}
+                  disabled={!isPlaying}
+                  onClick={() => togglePlayback(false)}
+                />
+                <span>/</span>
+                <HyperButton
+                  text={isPlaying ? "[Play]" : "Play"}
+                  disabled={isPlaying}
+                  onClick={() => togglePlayback(true)}
+                />
               </div>
 
               <div className="mb-4">
-                <span>
-                  Roll:{" "}
-                  {currentRoll.charAt(0).toUpperCase() + currentRoll.slice(1)}
-                </span>
+                <span>Pattern: {currentRoll}</span>
               </div>
 
               <div className="mb-2">
                 <div className="mb-2">
-                  <span>Speed: {bpm} BPM</span>
+                  <span>Tempo: {bpm} BPM</span>
                 </div>
               </div>
             </div>
@@ -86,10 +87,9 @@ export default function BanjoPage() {
           {/* Tablature Section - Full Width */}
           <div className="p-2 w-full">
             <BanjoTablature
-              roll={currentRoll}
+              roll={selectedRoll}
               bpm={isPlaying ? bpm : 0}
               onNoteActive={handleNoteActive}
-              fullWidth={true}
             />
           </div>
         </div>
