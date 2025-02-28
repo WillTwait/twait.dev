@@ -19,12 +19,17 @@
 /* Style external links */
 a[href^="http"],
 a[href^="mailto"] {
-  @apply underline decoration-blue-400 underline-offset-2 decoration-[0.1em] hover:decoration-blue-600 transition-all;
+  @apply underline decoration-blue-400 underline-offset-2 decoration-[0.1em] hover:decoration-blue-600;
 }
 
 /* Style internal links but exclude nav */
 a[href^="/"]:not(aside a) {
-  @apply underline decoration-emerald-400 underline-offset-2 decoration-[0.1em] hover:decoration-emerald-600 transition-all;
+  @apply underline decoration-emerald-400 underline-offset-2 decoration-[0.1em] hover:decoration-emerald-600;
+}
+
+/* Style non-existent wiki links */
+a[href="#"].cursor-not-allowed {
+  @apply underline decoration-amber-500 underline-offset-2 decoration-[0.1em] hover:decoration-amber-600;
 }
 
 :root {
@@ -59,8 +64,9 @@ html {
   @apply visible;
 }
 
-.prose a {
-  @apply underline transition-all decoration-neutral-400 underline-offset-2 decoration-[0.1em];
+/* Update prose links to match site styling */
+.prose a:not([href^="/"]):not([href^="http"]):not([href^="mailto"]):not(.anchor) {
+  @apply underline decoration-blue-400 underline-offset-2 decoration-[0.1em] hover:decoration-blue-600;
 }
 
 .prose .anchor:after {
