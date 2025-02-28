@@ -51,14 +51,6 @@ function CustomLink(props) {
   return <ExternalLink href={href} {...props} />;
 }
 
-// Define the WikiLink props interface
-interface WikiLinkProps {
-  children: React.ReactNode;
-  validSlugs?: string[];
-}
-
-// Remove the inline WikiLink component since we're now importing it
-
 function RoundedImage(props) {
   return <Image alt={props.alt} className="rounded-lg" {...props} />;
 }
@@ -160,9 +152,7 @@ export function CustomMDX(props: CustomMDXProps) {
     });
 
     // Replace [[text]] with <WikiLink>text</WikiLink>
-    content = content.replace(/\[\[(.*?)\]\]/g, (match, text) => {
-      // We can't pass the validSlugs array directly in the string template
-      // Instead, we'll just use the WikiLink component with the text
+    content = content.replace(/\[\[(.*?)\]\]/g, (text) => {
       return `<WikiLink>${text}</WikiLink>`;
     });
 
@@ -172,19 +162,13 @@ export function CustomMDX(props: CustomMDXProps) {
     }
   }
 
-  // Create a new props object with the modified source
-  const modifiedProps = {
-    ...props,
-    source: content,
-  };
-
   return (
     <MDXRemote
-      {...modifiedProps}
+      {...props}
+      source={content}
       components={{
         ...components,
         ...(props.components || {}),
-        // biome-ignore lint/suspicious/noExplicitAny: MDXRemote component types are complex
         WikiLink: (wikiProps) => (
           <WikiLink {...wikiProps} validSlugs={validSlugs} />
         ),
