@@ -45,10 +45,10 @@ export default function WikiLink({ children, validSlugs = [] }: WikiLinkProps) {
   return (
     <Link
       href={pageExists ? href : "#"}
-      className={` ${
+      className={`${
         pageExists
-          ? " hover:border-solid"
-          : "border-amber-500 hover:border-solid border-b"
+          ? "" // Use default styling from global CSS for existing pages
+          : "!decoration-amber-500 !hover:decoration-amber-600 !underline !underline-offset-2 !decoration-[0.1em]"
       } ${!pageExists ? "cursor-not-allowed" : ""}`}
       title={pageExists ? `Go to ${text}` : `Page "${text}" doesn't exist yet`}
       onClick={handleClick}
