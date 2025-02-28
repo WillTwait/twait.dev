@@ -65,7 +65,8 @@ html {
 }
 
 /* Update prose links to match site styling */
-.prose a:not([href^="/"]):not([href^="http"]):not([href^="mailto"]):not(.anchor) {
+.prose
+  a:not([href^="/"]):not([href^="http"]):not([href^="mailto"]):not(.anchor) {
   @apply underline decoration-blue-400 underline-offset-2 decoration-[0.1em] hover:decoration-blue-600;
 }
 

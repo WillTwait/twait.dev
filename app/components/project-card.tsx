@@ -19,7 +19,6 @@ export default function ProjectCard({
     <Link
       href={href}
       className="block group transition-transform hover:scale-[1.01] focus:scale-[1.01]"
-      target="_blank"
       style={{ textDecoration: "none" }}
     >
       <Frame title={title} titleSize="md">

@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <section>
+    <section className="flex flex-col gap-6 mt-4">
       <BlogPosts />
     </section>
   );

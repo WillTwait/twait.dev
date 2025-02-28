@@ -35,10 +35,6 @@ export function BlogPosts() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl border-2 border-black px-1 rounded-sm w-fit">
-        Musings and ideas.
-      </h1>
-
       <div className="flex flex-col md:flex-row gap-6">
         <div className="flex-1">
           <Frame title="Posts" titleSize="sm">
