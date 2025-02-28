@@ -1,6 +1,6 @@
 import { getBlogPosts } from "app/thoughts/utils";
 
-export const baseUrl = "https://www.twait.dev/";
+export const baseUrl = "https://www.twait.dev";
 
 export default async function sitemap() {
   const blogs = getBlogPosts().map((post) => ({
