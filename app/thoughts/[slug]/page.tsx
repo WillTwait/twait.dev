@@ -52,11 +52,15 @@ export function generateMetadata({ params }) {
 }
 
 export default function Blog({ params }) {
-  const post = getBlogPosts().find((post) => post.slug === params.slug);
+  const allPosts = getBlogPosts();
+  const post = allPosts.find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();
   }
+
+  // Extract all valid slugs from the blog posts
+  const validSlugs = allPosts.map((post) => post.slug);
 
   return (
     <section>
@@ -92,7 +96,7 @@ export default function Blog({ params }) {
         </p>
       </div>
       <article className="prose">
-        <CustomMDX source={post.content} />
+        <CustomMDX source={post.content} validSlugs={validSlugs} />
       </article>
     </section>
   );

@@ -9,6 +9,7 @@ import {
 } from "./captioned-image";
 import ExternalLink from "./external-link";
 import ImageRow from "./image-row";
+import WikiLink from "./wiki-link";
 
 function Table({ data }) {
   const headers = data.headers.map((header, index) => (
@@ -49,6 +50,14 @@ function CustomLink(props) {
 
   return <ExternalLink href={href} {...props} />;
 }
+
+// Define the WikiLink props interface
+interface WikiLinkProps {
+  children: React.ReactNode;
+  validSlugs?: string[];
+}
+
+// Remove the inline WikiLink component since we're now importing it
 
 function RoundedImage(props) {
   return <Image alt={props.alt} className="rounded-lg" {...props} />;
@@ -112,13 +121,74 @@ const components = {
   a: CustomLink,
   code: Code,
   Table,
+  WikiLink,
 };
 
-export function CustomMDX(props) {
+interface CustomMDXProps {
+  source: string;
+  validSlugs?: string[];
+  components?: Record<string, React.ComponentType<unknown>>;
+  [key: string]: unknown;
+}
+
+export function CustomMDX(props: CustomMDXProps) {
+  // Get the list of valid slugs from props or default to empty array
+  const validSlugs = props.validSlugs || [];
+
+  // Process content to transform [[text]] into <WikiLink>text</WikiLink>
+  let content: string = props.source || "";
+
+  if (typeof content === "string") {
+    // First, identify code blocks and protect them from processing
+    const codeBlocks: string[] = [];
+    let codeBlockCounter = 0;
+
+    // Replace multi-line code blocks with placeholders
+    content = content.replace(/```[\s\S]*?```/g, (match) => {
+      const placeholder = `__CODE_BLOCK_${codeBlockCounter}__`;
+      codeBlocks[codeBlockCounter] = match;
+      codeBlockCounter++;
+      return placeholder;
+    });
+
+    // Replace inline code blocks with placeholders
+    content = content.replace(/`([^`]+)`/g, (match) => {
+      const placeholder = `__CODE_BLOCK_${codeBlockCounter}__`;
+      codeBlocks[codeBlockCounter] = match;
+      codeBlockCounter++;
+      return placeholder;
+    });
+
+    // Replace [[text]] with <WikiLink>text</WikiLink>
+    content = content.replace(/\[\[(.*?)\]\]/g, (match, text) => {
+      // We can't pass the validSlugs array directly in the string template
+      // Instead, we'll just use the WikiLink component with the text
+      return `<WikiLink>${text}</WikiLink>`;
+    });
+
+    // Restore code blocks
+    for (let i = 0; i < codeBlockCounter; i++) {
+      content = content.replace(`__CODE_BLOCK_${i}__`, codeBlocks[i]);
+    }
+  }
+
+  // Create a new props object with the modified source
+  const modifiedProps = {
+    ...props,
+    source: content,
+  };
+
   return (
     <MDXRemote
-      {...props}
-      components={{ ...components, ...(props.components || {}) }}
+      {...modifiedProps}
+      components={{
+        ...components,
+        ...(props.components || {}),
+        // biome-ignore lint/suspicious/noExplicitAny: MDXRemote component types are complex
+        WikiLink: (wikiProps) => (
+          <WikiLink {...wikiProps} validSlugs={validSlugs} />
+        ),
+      }}
     />
   );
 }
