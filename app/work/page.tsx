@@ -1,10 +1,14 @@
+import ExternalLink from "app/components/external-link";
+
 export default function WorkPage() {
   return (
     <section className="flex flex-col gap-6">
-      <p className="text-2xl">Coming soon...</p>
-      <p className="text-neutral-600">
-        This page will showcase my professional work experience and career
-        highlights.
+      <p>
+        Haven't made this section yet, but you can check{" "}
+        <ExternalLink href="https://www.linkedin.com/in/william-twait/">
+          LinkedIn
+        </ExternalLink>{" "}
+        if you're interested.
       </p>
     </section>
   );

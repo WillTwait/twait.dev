@@ -39,7 +39,6 @@ export function BlogPosts() {
         <div className="flex-1">
           <Frame title="Posts" titleSize="sm">
             <div className="p-4 flex flex-col gap-4">
-              <p className="text-neutral-600">What I'm thinking about.</p>
               <ul className="space-y-4">
                 {posts.map((post, index) => (
                   <li key={post.slug} className="flex gap-2">
@@ -65,13 +64,6 @@ export function BlogPosts() {
         <div className="flex-1">
           <Frame title="Weekly Roundup" titleSize="sm">
             <div className="p-4 flex flex-col gap-4">
-              <p className="text-neutral-600">
-                Experiences and ideas from the week, and the most memorable{" "}
-                <ExternalLink href="https://patrickcollison.com/links">
-                  links
-                </ExternalLink>{" "}
-                I came across.
-              </p>
               <ul className="space-y-4">
                 {weekly.map((post, index) => (
                   <li key={post.slug} className="flex gap-2">
