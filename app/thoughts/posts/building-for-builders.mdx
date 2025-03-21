@@ -1,0 +1,64 @@
+---
+title: Building for the Builders: Tendrel and the Future of Home-Cooked Software
+publishedAt: 2025-03-21
+summary: How the Tendrel Platform is empowering "Barefoot Buisiness Owners".
+type: post
+---
+
+(Originally published on the [Tendrel Blog](https://blog.tendrel.io/building-for-builders?hss_channel=lcp-86973832).)
+
+DIY software is in. Thanks to LLMs and their ability to turn English into working code (at an increasingly impressive ability), anyone with an idea and access to a chatbot [can build the app of their dreams](https://www.nytimes.com/2025/02/27/technology/personaltech/vibecoding-ai-software-programming.html?unlocked_article_code=1.0E4.ERlm.JDWcgxGZuhZ5&smid=url-share).
+
+Maggie Appleton, a product designer and writer who specializes in building tools that interface with language models, calls these types of people "[Barefoot Developers](https://maggieappleton.com/home-cooked-software/)". This name, inspired by the "[barefoot doctors](https://en.wikipedia.org/wiki/Barefoot_doctor)" of the 1960's Chinese cultural revolution, describes people with minimal training or experience in software development, but who have a deep understanding of the problem or community that they want to develop tools for. Specifically, these are people who have an interest in using technology to solve their problems, but who aren't necessarily ready to cross the "command line wall" as Maggie calls it.
+
+<CaptionedImage
+  src="/attachments/command-line-wall.png"
+  alt="Command Line Wall"
+  caption="Maggie Appleton, 'Home-Cooked Software and Barefoot Developers'"
+/>
+
+In the education space, an example may be teachers who build complicated Notion automations to help manage their lesson plans. In the SMB world, this could be business owners who build custom SharePoint dashboards powered by a hodgepodge of Excel sheets as the backend.
+
+## The First Course of Home-Cooked Software is Served
+
+Tools like [Cursor](https://www.cursor.com/), [V0](https://v0.dev/), and [Bolt](https://bolt.new/) are built with this type of person in mind, allowing users to turn drawings or descriptions into working interfaces. This is a huge improvement over "no-code" tools of old, partly because LLMs can operate at incredible speed and scale, and partly because you are creating code that you own. The issue for Barefoot Developers, Maggie points out, is that building software is more than just a user interface. A real software has an architecture -- APIs, databases, authentication, deployments, etc.
+
+<CaptionedImage
+  src="/attachments/limitations.png"
+  alt="Limitations of 'Home-Cooked Software'"
+  caption="Maggie Appleton, 'Home-Cooked Software and Barefoot Developers'"
+/>
+
+A farmer who wants to build a crop tracking app may have an expert understanding of their operation and issues, but doesn't know how to build an offline-enabled application -- or even know that they need to build their app to work offline. Barefoot developers probably also aren't aware of data schemas, so each tool they build will have a totally different data model. The farmer's crop tracking app data will look different than their home-cooked labor management app data, making it difficult to connect the insights they hope to glean from each tool (ie. Which workers are attending to which crops?). A professional developer would build these tools with IDs and foreign keys in mind, but a Barefoot Developer may only know enough to direct their LLMs to build interfaces for them -- the part of software they know because that is what they see and interact with.
+
+To truly empower Barefoot Developers to build tools that actually solve their problems, they need what Maggie Appleton calls "the glue", or everything that works invisibly to bind together ideas and LLM-generated code into well-made software.
+
+<CaptionedImage
+  src="/attachments/application-glue.png"
+  alt="Application Glue"
+  caption="Maggie Appleton, 'Home-Cooked Software and Barefoot Developers'"
+/>
+
+## The Platform for Barefoot Business Owners
+
+This glue, I believe, needs to be made by teams with two distinct skills: expertise in architecting software and an understanding of what different groups of Barefoot Developers need to build their tools. The latter part here is key. Designing an architecture that covers _every_ base of software development is complicated, and Barefoot Developers need an understandable and opinionated system. The "glue architects" need to take the burden of the messy parts of software off the Developers' shoulders, letting them focus on building their ideas.
+
+This combination of skills is rare though. You need engineers that think about, care about, and have experience in the industries or communities they would be making the glue for. Engineers like those at [Tendrel](https://tendrel.io/).
+
+Tendrel, and specifically the Tendrel Platform, is positioned to be the "glue layer" for "Barefoot Business Owners" -- business owners who have problems to solve for their business, ideas on how to use technology to do so, but don't have the technical ability to code up solutions themselves. We are a team with firsthand experience working in the industries we hope to support, alongside years of professional experience architecting software.
+
+## The Tendrel Glue
+
+The Tendrel Platform solves the exact problems that a Barefoot Business Owner would face when developing a software solution for their business using just LLM powered tools.
+
+Our data model, the "Schema for Work", is opinionated in the way that entities are defined and how they interact with each other -- enabling a unified data model that applies to any application a business owner would create. With a unified data model, Barefoot Developers can create a suite of connected applications, tools that can be narrowly scoped to solve very specific needs, but are also using and generating data that is usable across any other app built on the Tendrel Platform.
+
+The Tendrel Platform also comes built-in with features that these developers may need but wouldn't think about when scoping their home-cooked project -- features like local-first architectures for offline mode, multi-tenancy for their authentication, and automatic multi-language support.
+
+We have been setting ourselves up to share the Tendrel Platform with business owners ready to start solving their own problems with home-cooked software by building our own [applications](https://tendrel.io/product) on the platform.
+
+With Barefoot Developers using LLMs to create applications built on the Tendrel Platform, we are excited to see this list grow beyond our own inventions and expand into the world of home-cooked software.
+
+### Note
+
+I highly recommend checking out [the complete talk](https://youtu.be/qo5m92-9_QI?si=LbuvepkOMrk7JvcU) Maggie gave on Barefoot Developers, or checking out the [slides and transcript](https://maggieappleton.com/home-cooked-software/).
